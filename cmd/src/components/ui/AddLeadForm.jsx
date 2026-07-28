@@ -22,7 +22,8 @@ const AddLeadForm = ({ setLeads, setOpenForm }) => {
       setLoading(true);
 
       const existingLeads = await axios.get(
-        "http://localhost:5000/leads"
+        `${import.meta.env.VITE_API_URL}/leads`,
+        // "http://localhost:5000/leads"
       );
 
       const duplicateLead = existingLeads.data.find(
@@ -54,7 +55,8 @@ const AddLeadForm = ({ setLeads, setOpenForm }) => {
       };
 
       const res = await axios.post(
-        "http://localhost:5000/add-lead",
+        `${import.meta.env.VITE_API_URL}/add-lead`,
+        // "http://localhost:5000/add-lead",
         newLead
       );
 

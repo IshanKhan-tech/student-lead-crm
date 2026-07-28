@@ -19,7 +19,10 @@ const Employees = () => {
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/users");
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_URL}/users`,
+        // "http://localhost:5000/users"
+      );
 
       setEmployees(res.data);
     } catch (error) {
@@ -32,7 +35,8 @@ const Employees = () => {
 
     try {
       await axios.post(
-        "http://localhost:5000/create-employee",
+        `${import.meta.env.VITE_API_URL}/create-employee`,
+        // "http://localhost:5000/create-employee",
 
         {
           name,

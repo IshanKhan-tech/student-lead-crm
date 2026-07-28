@@ -25,7 +25,10 @@ const Leads = () => {
 
   const fetchLeads = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/leads");
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_URL}/leads`,
+        // "http://localhost:5000/leads"
+      );
 
       setLeads(res.data);
     } catch (err) {
@@ -35,7 +38,10 @@ const Leads = () => {
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/users");
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_URL}/users`,
+        // "http://localhost:5000/users"
+      );
 
       setEmployees(res.data);
     } catch (err) {
@@ -55,7 +61,8 @@ const Leads = () => {
       formData.append("file", file);
 
       const res = await axios.post(
-        "http://localhost:5000/upload-leads",
+        `${import.meta.env.VITE_API_URL}/upload-leads`,
+        // "http://localhost:5000/upload-leads",
         formData,
         {
           headers: {
@@ -261,7 +268,8 @@ const Leads = () => {
 
                           axios
                             .put(
-                              `http://localhost:5000/update-status/${lead._id}`,
+                              // `${import.meta.env.VITE_API_URL}/leads`,
+                              `${import.meta.env.VITE_API_URL}/update-status/${lead._id}`,
                               {
                                 status: newStatus,
                               },
@@ -316,7 +324,8 @@ const Leads = () => {
                           onChange={async (e) => {
                             try {
                               await axios.put(
-                                `http://localhost:5000/reassign-lead/${lead._id}`,
+                                
+                                `${import.meta.env.VITE_API_URL}/reassign-lead/${lead._id}`,
                                 {
                                   assignedTo: e.target.value,
                                 },
@@ -350,7 +359,7 @@ const Leads = () => {
                           toast.error('Lead Deleted')
                           axios
                             .delete(
-                              `http://localhost:5000/delete-lead/${lead._id}`,
+                              `${import.meta.env.VITE_API_URL}/delete-lead/${lead._id}`,
                             )
 
                             .then(() => {

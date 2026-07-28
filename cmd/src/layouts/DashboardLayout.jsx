@@ -27,7 +27,8 @@ const DashboardLayout = () => {
     try {
 
       const res = await axios.get(
-        'http://localhost:5000/leads'
+        `${import.meta.env.VITE_API_URL}/leads`,
+        // 'http://localhost:5000/leads'
       )
 
       setLeads(res.data)
@@ -47,7 +48,8 @@ const DashboardLayout = () => {
     try {
 
       const res = await axios.get(
-        'http://localhost:5000/users'
+        `${import.meta.env.VITE_API_URL}/users`,
+        // 'http://localhost:5000/users'
       )
 
       setEmployeesData(res.data)
