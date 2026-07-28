@@ -14,9 +14,14 @@ const app = express();
 const multer = require("multer");
 const XLSX = require("xlsx");
 
+const path = require("path");
+
 app.use(cors());
 
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, "public")));
+
 
 const upload = multer({
   dest: "uploads/",
@@ -732,6 +737,9 @@ app.post(
 );
 
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 const PORT = process.env.PORT || 5000;
 
