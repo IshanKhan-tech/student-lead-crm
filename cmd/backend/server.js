@@ -37,9 +37,7 @@ app.get("/", (req, res) => {
 });
 
 
-// =========================
-// LOGIN
-// =========================
+
 
 app.post("/login", async (req, res) => {
 
@@ -113,9 +111,7 @@ app.post("/login", async (req, res) => {
 });
 
 
-// =========================
-// CREATE EMPLOYEE
-// =========================
+
 
 app.post("/create-employee", async (req, res) => {
 
@@ -207,8 +203,6 @@ app.post("/create-employee", async (req, res) => {
 
     }
 
-    // CASE 2
-    // IF NO UNASSIGNED LEADS
 
     else {
 
@@ -288,9 +282,7 @@ app.post("/create-employee", async (req, res) => {
 });
 
 
-// =========================
-// ADD LEAD
-// =========================
+
 
 app.post("/add-lead", async (req, res) => {
 
@@ -368,9 +360,7 @@ app.post("/add-lead", async (req, res) => {
 });
 
 
-// =========================
-// GET LEADS
-// =========================
+
 
 app.get("/leads", async (req, res) => {
 
@@ -393,9 +383,6 @@ app.get("/leads", async (req, res) => {
 });
 
 
-// =========================
-// DELETE LEAD
-// =========================
 
 app.delete("/delete-lead/:id", async (req, res) => {
 
@@ -421,10 +408,6 @@ app.delete("/delete-lead/:id", async (req, res) => {
 
 });
 
-
-// =========================
-// UPDATE STATUS
-// =========================
 
 app.put("/update-status/:id", async (req, res) => {
 
@@ -459,11 +442,6 @@ app.put("/update-status/:id", async (req, res) => {
 
 });
 
-
-// =========================
-// GET EMPLOYEES
-// =========================
-
 app.get("/users", async (req, res) => {
 
   try {
@@ -485,11 +463,6 @@ app.get("/users", async (req, res) => {
   }
 
 });
-
-
-// =========================
-// DELETE EMPLOYEE
-// =========================
 
 app.delete("/delete-user/:id", async (req, res) => {
 
@@ -540,9 +513,6 @@ app.delete("/delete-user/:id", async (req, res) => {
 });
 
 
-// =========================
-// REASSIGN LEAD
-// =========================
 
 app.put("/reassign-lead/:id", async (req, res) => {
 
@@ -578,9 +548,6 @@ app.put("/reassign-lead/:id", async (req, res) => {
 });
 
 
-// =========================
-// REDISTRIBUTE LEADS
-// =========================
 
 app.get("/redistribute-leads", async (req, res) => {
 
@@ -764,14 +731,10 @@ app.post(
   }
 );
 
-// =========================
-// SERVER
-// =========================
 
-app.listen(5000, () => {
 
-  console.log(
-    "Server Started On Port 5000"
-  );
+const PORT = process.env.PORT || 5000;
 
+app.listen(PORT, () => {
+  console.log("Server Started On Port", PORT);
 });
